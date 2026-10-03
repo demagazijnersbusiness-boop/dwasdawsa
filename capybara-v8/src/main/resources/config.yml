@@ -1,0 +1,69 @@
+# CAPYBARA SMP configuration (MiniMessage: https://docs.advntr.dev/minimessage/format.html)
+# <value> is replaced with the stat value.
+
+# Secret code for /urj <code>  -> unlocks admin commands for that player (permanent).
+# CHANGE THIS to your own number and keep it private!
+admin-code: "7765386498"
+
+# Seconds the /announce title stays on screen
+announce-seconds: 7
+
+# Message shown to a player when they join (MiniMessage).
+join-message: "<gray>Systems made by <#ff4fa3><bold>@ItssCapy"
+
+# Starting money for new players. You can use K, M, B, T, QA, QI, SX, SP, OC, NO, DC.
+start-money: "1K"
+start-lives: 3
+max-lives: 20
+
+lives:
+  lose-on-death: true
+  # NONE or SPECTATOR
+  on-zero-lives: NONE
+
+# Ranks for /giverank <name> <rank>. prefix = shown before the name (tab list, chat, nametag).
+# color = name color (NamedTextColor: light_purple, red, gold, aqua ...)
+ranks:
+  media:
+    prefix: "<#ff4fa3>▶ "
+    color: LIGHT_PURPLE
+
+# Skelly Spawner: looks like a skeleton spawner but NEVER spawns mobs.
+# It stores what skeletons drop (bones + arrows). Right-click it to open the window and sell the loot.
+# Right-click a placed one with another Skelly Spawner to stack it (more spawners = more items).
+skelly-spawner:
+  daily-limit: 5                # max Skelly Spawners one player can BUY per day (both shops together, 0 = unlimited)
+  limit-window-hours: 24        # the 'day' for the limit above
+  interval-seconds: 10          # how often loot is generated
+  kills-per-cycle: 4            # simulated skeleton kills per spawner per cycle
+  capacity-per-spawner: 2880    # max stored items per spawner in the stack (2880 = 45 stacks of 64)
+  max-stack: 10000              # max spawners in one stack
+  hologram: true                # floating text above the spawner
+  particles: true               # green sparkles every cycle
+
+# Emerald = second currency. Earned by typing /afk and standing still.
+emerald:
+  currency-name: "Emerald"
+  afk:
+    interval-seconds: 60      # you get a reward every X seconds of standing still
+    amount: 1                 # Emerald per reward
+  shop:                       # /emeraldshop
+    spawner-price: 1500       # Skelly Spawner price (kept expensive so they stay rare)
+    pickaxe-price: 100        # Emerald Pickaxe price
+    pickaxe-hours: 24         # the pickaxe disappears this many hours after buying
+    # Emerald Sword: kills anything in one hit, self-destructs after sword-hours.
+    # sword-price defaults to 2x pickaxe-price; remove the # to set your own price.
+    # sword-price: 200
+    sword-hours: 5
+    sword-hits-players: true  # false = the sword only insta-kills mobs, not players
+
+scoreboard:
+  title: "<bold><gradient:#ff2b2b:#8b4513>CAPYBARA SMP</gradient></bold>"
+  always-show-hours: true
+  lines:
+    kills: "<red>⚔ <white>Kills <red><value>"
+    deaths: "<gold>☠ <white>Deaths <gold><value>"
+    money: "<green>$ <white>Money <green><value>"
+    playtime: "<yellow>⏱ <white>Playtime <yellow><value>"
+    lives: "<red>❤ <white>Lives <red><value>"
+    emerald: "<#17dd62>◆ <white>Emerald <#17dd62><value>"
