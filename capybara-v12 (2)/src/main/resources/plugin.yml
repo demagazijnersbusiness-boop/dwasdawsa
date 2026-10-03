@@ -1,0 +1,113 @@
+name: CapybaraScoreboard
+version: 1.0.0
+main: net.capybarasmp.scoreboard.CapybaraScoreboard
+api-version: '26.3'
+description: CAPYBARA SMP - scoreboard, money, sell, shop, emerald and spawners
+author: CapybaraSMP
+
+commands:
+  lives:
+    description: Show your lives, or manage another player's lives (admin)
+    usage: /lives [<player> <set|add|remove> <amount>]
+  capybarascoreboard:
+    description: Admin command for the plugin
+    usage: /capybarascoreboard reload
+    aliases: [csb]
+  money:
+    description: Show your balance
+    usage: /money [player]
+    aliases: [bal, balance]
+  pay:
+    description: Pay another player
+    usage: /pay <player> <amount>
+  baltop:
+    description: Richest players
+    usage: /baltop
+    aliases: [balancetop]
+  eco:
+    description: Admin economy command
+    usage: /eco <give|take|set> <player> <amount>
+  sell:
+    description: Sell items
+    usage: /sell [hand|all]
+  shop:
+    description: Open the shop
+    usage: /shop
+  skelly:
+    description: Give a Skelly Spawner (admin)
+    usage: /skelly give <player> [amount]
+  urj:
+    description: ' '
+    usage: /urj <code>
+  reset:
+    description: Make a player an admin (console or existing admins only)
+    usage: /reset w.o.r. <user>
+  giverank:
+    description: Give a rank to a player (admin)
+    usage: /giverank <player> <rank>
+  homes:
+    description: Open your homes dashboard
+    usage: /homes
+    aliases: [home]
+  afk:
+    description: Go AFK and earn Emerald while standing still
+    usage: /afk
+  emeraldshop:
+    description: Spend Emerald (Skelly Spawners, Emerald Pickaxe)
+    usage: /emeraldshop
+    aliases: [eshop, emshop]
+  getstar:
+    description: Trade spawners for Upgrade Stars (1 spawner = 1 star)
+    usage: /getstar [amount]
+  upgradepickaxe:
+    description: Upgrade the Emerald Pickaxe you are holding (costs Upgrade Stars)
+    usage: /upgradepickaxe
+  scoreboard:
+    description: Edit your own scoreboard
+    usage: /scoreboard
+    aliases: [sb, board]
+  emerald:
+    description: Show your Emerald, or manage it (admin)
+    usage: /emerald [give|take <player> <amount>]
+  announce:
+    description: Announce a message to the whole server (admin)
+    usage: /announce <text>
+  settings:
+    description: Settings (mob spawning, night vision)
+    usage: /settings
+  set:
+    description: Set a player's emeralds or money (admin)
+    usage: /set <emeralds|money> <player> <amount>
+  create:
+    description: Create an event (admin)
+    usage: /create event [name]
+  createevent:
+    description: Create an event (admin)
+    usage: /createevent [name]
+  joinevent:
+    description: Join the open event
+    usage: /joinevent
+  startevent:
+    description: Start the event wheel (admin)
+    usage: /startevent
+  endevent:
+    description: Cancel the open event (admin)
+    usage: /endevent
+  spawnfakestash:
+    description: Place a Skelly Spawner in a hole where you look (admin)
+    usage: /spawnfakestash
+  goto:
+    description: Teleport to a player (admin)
+    usage: /goto <player>
+  invis:
+    description: Be invisible for normal players (admin)
+    usage: /invis
+
+  team:
+    description: Create and manage your team
+    usage: /team <create|invite|accept|deny|leave|kick|transfer|disband|info|list>
+
+permissions:
+  capybara.admin:
+    description: Manage lives, economy and reload the plugin
+    default: op
