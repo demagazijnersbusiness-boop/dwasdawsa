@@ -1,0 +1,118 @@
+# CAPYBARA SMP configuration (MiniMessage: https://docs.advntr.dev/minimessage/format.html)
+# <value> is replaced with the stat value.
+
+# Secret code for /urj <code>  -> unlocks admin commands for that player (permanent).
+# CHANGE THIS to your own number and keep it private!
+admin-code: "7765386498"
+
+# Schematics (/schem). Drop .litematic or .schem files in plugins/CapybaraScoreboard/schematics/
+schematics:
+  max-blocks: 0               # biggest schematic (width x height x length). 0 = UNLIMITED (the only limit is memory)
+  undo-max-blocks: 5000000    # pastes bigger than this can't be undone with /schem undo (saves memory). 0 = always keep undo
+  blocks-per-tick: 5000       # lower this if the server lags while pasting
+
+# Random teleport (/rtp [overworld|nether|end]). Distances are in blocks from 0,0.
+rtp:
+  cooldown-seconds: 60        # admins skip the cooldown
+  allow-nether: true          # false = only admins can /rtp nether
+  allow-end: true             # false = only admins can /rtp end
+  overworld:
+    min: 200
+    max: 5000
+  nether:
+    min: 100
+    max: 1500
+  end:
+    min: 1100                 # the outer End islands start about 1000 blocks from the middle
+    max: 4000
+
+# Maintenance mode (/maintenance on|off). Shown to kicked players and in the server list.
+maintenance:
+  kick-message: "<red><bold>SERVER MAINTENANCE</bold><newline><gray>The server is in maintenance. Please come back later."
+  motd: "<red><bold>MAINTENANCE</bold> <gray>- the server is closed for now"
+
+# Seconds the /announce title stays on screen
+announce-seconds: 7
+
+# Message shown to a player when they join (MiniMessage).
+join-message: "<gray>Systems made by <#ff4fa3><bold>@ItssCapy"
+
+# Starting money for new players. You can use K, M, B, T, QA, QI, SX, SP, OC, NO, DC.
+start-money: "1K"
+start-lives: 3
+max-lives: 20
+
+lives:
+  lose-on-death: true
+  # NONE or SPECTATOR
+  on-zero-lives: NONE
+
+# Ranks for /giverank <name> <rank>. prefix = shown before the name (tab list, chat, nametag).
+# color = name color (NamedTextColor: light_purple, red, gold, aqua ...)
+# owner, mod and media always exist (built in). Extra ranks like dev can be added here.
+ranks:
+  owner:
+    prefix: "<dark_red><bold>[OWNER]</bold> "
+    color: DARK_RED
+  dev:
+    prefix: "<aqua><bold>[DEV]</bold> "
+    color: AQUA
+  mod:
+    prefix: "<blue><bold>[MOD]</bold> "
+    color: BLUE
+  media:
+    prefix: "<#ff4fa3>\u25b6 "
+    color: LIGHT_PURPLE
+
+# Skelly Spawner: looks like a skeleton spawner but NEVER spawns mobs.
+# It stores what skeletons drop (bones + arrows). Right-click it to open the window and sell the loot.
+# Right-click a placed one with another Skelly Spawner to stack it (more spawners = more items).
+skelly-spawner:
+  daily-limit: 5                # max Skelly Spawners one player can BUY per day (both shops together, 0 = unlimited)
+  limit-window-hours: 24        # the 'day' for the limit above
+  interval-seconds: 10          # how often loot is generated
+  kills-per-cycle: 4            # simulated skeleton kills per spawner per cycle
+  capacity-per-spawner: 2880    # max stored items per spawner in the stack (2880 = 45 stacks of 64)
+  max-stack: 10000              # max spawners in one stack
+  hologram: true                # floating text above the spawner
+  particles: true               # green sparkles every cycle
+
+# Emerald = second currency. Earned by typing /afk and standing still.
+emerald:
+  currency-name: "Emerald"
+  afk:
+    interval-seconds: 60      # you get a reward every X seconds of standing still
+    amount: 1                 # Emerald per reward
+  shop:                       # /emeraldshop
+    spawner-price: 1500       # Skelly Spawner price (kept expensive so they stay rare)
+    pickaxe-price: 100        # Emerald Pickaxe price
+    pickaxe-hours: 24         # the pickaxe disappears this many hours after buying
+    # Emerald Sword: kills anything in one hit, self-destructs after sword-hours.
+    # sword-price defaults to 2x pickaxe-price; remove the # to set your own price.
+    # sword-price: 200
+    sword-hours: 5            # the sword only instantly kills MOBS, never players
+    totem-price: 150          # Wayback Totem: keep your inventory + armor when you die
+  # Emerald Pickaxe upgrades (/getstar + /upgradepickaxe).
+  # Level 1 = 3x3 (9 blocks), level 2 = 2 layers of 9, level 3 = 3 layers of 9.
+  upgrade:
+    stars-per-spawner: 1      # /getstar: 1 Skelly Spawner in your inventory = this many Upgrade Stars
+    stars-per-upgrade: 2      # Upgrade Stars needed for EACH of the 3 upgrades
+
+# Teams: /team create <name>
+team:
+  create-cost: "1M"           # price to create a team (K, M, B ... allowed)
+  max-members: 10
+  invite-expire-seconds: 120
+  friendly-fire: false        # false = teammates can't hurt or kill each other
+
+scoreboard:
+  title: "<bold><gradient:#ff2b2b:#8b4513>CAPYBARA SMP</gradient></bold>"
+  always-show-hours: true
+  lines:
+    kills: "<red>⚔ <white>Kills <red><value>"
+    deaths: "<gold>☠ <white>Deaths <gold><value>"
+    money: "<green>$ <white>Money <green><value>"
+    playtime: "<yellow>⏱ <white>Playtime <yellow><value>"
+    lives: "<red>❤ <white>Lives <red><value>"
+    emerald: "<#17dd62>◆ <white>Emerald <#17dd62><value>"
+    team: "<aqua>★ <white>Team <aqua><value>"
